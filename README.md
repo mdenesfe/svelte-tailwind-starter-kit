@@ -1,5 +1,7 @@
 # Svelte + TailwindCSS Starter Kit
 
+You can view a demo of this starter kit [here](https://svelte-tailwind-starter-kit.vercel.app/).
+
 This repository provides a starting point for projects using Svelte and TailwindCSS. You can either use this repository directly or follow the steps to create your own setup.
 
 ## Using the Repository Directly
