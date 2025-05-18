@@ -1,7 +1,23 @@
 /** @type {import('tailwindcss').Config} */
+import typography from '@tailwindcss/typography';
+import forms from '@tailwindcss/forms';
+
 export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
-
+  // JIT modu ve daha hızlı derlemeler için
+  future: {
+    hoverOnlyWhenSupported: true,
+    respectDefaultRingColorOpacity: true,
+    disableColorOpacityUtilitiesByDefault: true,
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true
+  },
+  // Purge edilecek ek dosyaları belirt
+  safelist: [
+    'bg-primary-500',
+    'text-primary-500',
+    'border-primary-500'
+  ],
   theme: {
     extend: {
       colors: {
@@ -24,13 +40,20 @@ export default {
       }
     }
   },
-
+  // Daha hızlı render için ağır olanları devre dışı bırak
+  corePlugins: {
+    backdropFilter: false,
+    container: false, // Gerekirse eklenebilir
+    touchAction: false,
+    ringOffsetWidth: false,
+    ringOffsetColor: false,
+    scrollSnapType: false,
+    borderOpacity: false,
+    textOpacity: false,
+    backgroundOpacity: false
+  },
   plugins: [
-    require("@tailwindcss/typography"),
-    require('@tailwindcss/forms')
-  ],
-
-  future: {
-    hoverOnlyWhenSupported: true
-  }
+    typography,
+    forms
+  ]
 };
